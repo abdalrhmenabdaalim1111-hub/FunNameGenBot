@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد الأسماء العجيب</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Outfit:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- Ad SDK -->
+    <script src='//libtl.com/sdk.js' data-zone='10275686' data-sdk='show_10275686'></script>
+</head>
+
+<body>
+    <div class="background-animation"></div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <button class="icon-btn" onclick="toggleTheme()" id="theme-btn">☀️</button>
+        <button class="icon-btn" onclick="toggleLanguage()" id="lang-btn">EN</button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 data-i18n="appTitle">مولد الأسماء العجيب</h1>
+            <p data-i18n="appSubtitle">اكتشف شخصيتك الخفية في الأكوان الموازية</p>
+        </header>
+
+        <div class="input-group">
+            <input type="text" id="userName" placeholder=" " required autocomplete="off">
+            <label for="userName" data-i18n="inputLabel">اكتب اسمك هنا...</label>
+            <div class="glow-effect"></div>
+        </div>
+
+        <div class="card-container">
+            <div class="card" onclick="generateName('anime')">
+                <div class="card-content">
+                    <div class="icon">🎌</div>
+                    <div>
+                        <h3 data-i18n="catAnime">شخصية أنمي</h3>
+                        <p class="small" data-i18n="descAnime">اسمك في عالم الأنمي</p>
+                    </div>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+            <div class="card" onclick="generateName('alien')">
+                <div class="card-content">
+                    <div class="icon">👽</div>
+                    <div>
+                        <h3 data-i18n="catAlien">كائن فضائي</h3>
+                        <p class="small" data-i18n="descAlien">اسمك في المجرة</p>
+                    </div>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+            <div class="card" onclick="generateName('brand')">
+                <div class="card-content">
+                    <div class="icon">🏷️</div>
+                    <div>
+                        <h3 data-i18n="catBrand">ماركة عربية</h3>
+                        <p class="small" data-i18n="descBrand">اسم علامتك التجارية</p>
+                    </div>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+            <div class="card" onclick="generateName('indian')">
+                <div class="card-content">
+                    <div class="icon">🪔</div>
+                    <div>
+                        <h3 data-i18n="catIndian">اسم هندي</h3>
+                        <p class="small" data-i18n="descIndian">اسمك في بوليود</p>
+                    </div>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+            <div class="card" onclick="generateName('pharaonic')">
+                <div class="card-content">
+                    <div class="icon">👁️</div>
+                    <div>
+                        <h3 data-i18n="catPharaonic">اسم فرعوني</h3>
+                        <p class="small" data-i18n="descPharaonic">اسمك في مصر القديمة</p>
+                    </div>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+        </div>
+
+        <!-- Scanning Overlay -->
+        <div id="scanning-overlay" class="overlay hidden">
+            <div class="scanner-content">
+                <div class="dna-loader"></div>
+                <h2 id="scanning-text" data-i18n="scanTitle">جاري تحليل البيانات...</h2>
+                <p class="scanning-detail" data-i18n="scanDetail">يتم مطابقة اسمك مع السجلات الكونية</p>
+            </div>
+        </div>
+
+        <!-- Result Modal -->
+        <div id="result-modal" class="modal hidden">
+            <div class="modal-content glass-panel">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="result-icon" id="result-icon">✨</div>
+                <h2 id="result-title">النتيجة</h2>
+                <div class="result-box">
+                    <p id="result-value">...</p>
+                </div>
+                <div class="modal-actions">
+                    <button onclick="shareResult()" class="btn-secondary" data-i18n="shareBtn">مشاركة</button>
+                    <button onclick="closeModal()" class="btn-primary" data-i18n="closeBtn">رائع!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
