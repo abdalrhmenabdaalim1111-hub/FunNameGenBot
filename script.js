@@ -173,53 +173,110 @@ function playSound(type) {
 // Data for names (Same as before, simplified for brevity in this view but should be full list)
 // ... [Keeping the existing 'names' object] ...
 const names = {
-    anime: [
-        "Sakura Shadow", "Ryu Storm", "Kaito Blaze", "Yuki Frost", "Akira Void", "Ren Spirit",
-        "Hiroshi Thunder", "Kenji Blade", "Sora Sky", "Rina Moon", "Takeshi Steel", "Yumi Light",
-        "Daiki Earth", "Hana Flower", "Shinji Soul", "Mika Star", "Taro Dragon", "Nami Wave",
-        "Sasuke Dark", "Naruto Wind", "Luffy Rubber", "Zoro Sword", "Sanji Fire", "Goku Power",
-        "Vegeta Pride", "Ichigo Death", "Rukia Snow", "Aizen Illusion", "Madara Legend", "Hashirama Wood",
-        "Minato Flash", "Kakashi Copy", "Jiraiya Sage", "Tsunade Power", "Orochimaru Snake", "Gaara Sand",
-        "Killua Lightning", "Gon Hunter", "Kurapika Chain", "Hisoka Joker", "Eren Titan", "Mikasa Guardian",
-        "Levi Captain", "Light Kira", "L Detective", "Nezuko Demon", "Tanjiro Water", "Zenitsu Thunder"
-    ],
-    alien: [
-        "Xyloph", "Zorgon", "Quasar", "Nebulon", "Vortexia", "Krypton",
-        "Thalor", "Zentox", "Omicron", "Vega", "Sirius", "Andromeda",
-        "Exon", "Pulsar", "Nova", "Cosmo", "Astro", "Galax",
-        "Zeron", "Makron", "Titan", "Orion", "Pleiades", "Draco",
-        "Lyra", "Cygnus", "Pegasus", "Phoenix", "Hydra", "Cetus",
-        "Vulcan", "Romulus", "Klingon", "Cyborg", "Xenomorph", "Predator",
-        "Avatar", "Navi", "Thanos", "Gamora", "Nebula", "Rocket",
-        "Groot", "Starlord", "Drax", "Mantis", "Yondu", "Kraglin"
-    ],
-    brand: [
-        "Al-Jazeera Lux", "Desert Rose", "Oasis Pure", "Sultan's Gold", "Arabian Nights", "Dune Essence",
-        "Royal Oud", "Golden Palm", "Sahara Breeze", "Majestic Falcon", "Pearl of Gulf", "Emerald Mirage",
-        "Crown of Arabia", "Silk Road", "Mystic Amber", "Azure Sky", "Velvet Sand", "Diamond Dune",
-        "Asala", "Fakhama", "Turath", "Nokhba", "Qimma", "Riyada",
-        "Black Diamond", "Orient Ruby", "Nile Emerald", "Kings Scent", "Princes Incense", "Musk Finale",
-        "Arabian Horse", "Damascus Sword", "Authentic Coffee", "Generous Hospitality", "Luxury Majlis", "Royal Diwan",
-        "Alhambra Palace", "Andalusian Nights", "Magic of East", "Scent of History", "Touch of Creativity", "Future Vision"
-    ],
-    indian: [
-        "Aarav Sun", "Vihaan Dawn", "Aditya Light", "Sai Divine", "Arjun White", "Rohan Ascending",
-        "Ishaan Sun", "Ananya Grace", "Diya Lamp", "Kavya Poetry", "Mira Ocean", "Nisha Night",
-        "Riya Singer", "Saanvi Goddess", "Vivan Life", "Zara Princess", "Kabir Great", "Neel Blue",
-        "Raj King", "Rani Queen", "Priya Beloved", "Amita Infinite", "Dev God", "Lakshmi Luck",
-        "Ganesh Wisdom", "Shiva Destroyer", "Vishnu Preserver", "Brahma Creator", "Indra King", "Agni Fire",
-        "Vayu Wind", "Varuna Water", "Soma Moon", "Surya Sun", "Kali Time", "Durga Power",
-        "Saraswati Knowledge", "Krishna Black", "Rama Joy", "Sita Earth", "Hanuman Strength", "Ravana Roar"
-    ],
-    pharaonic: [
-        "Ramses Great", "Horus Sky", "Anubis Guide", "Osiris Life", "Isis Magic", "Thoth Wisdom",
-        "Set Chaos", "Ra Sun", "Amun Hidden", "Bastet Cat", "Hathor Love", "Maat Truth",
-        "Sobek Power", "Sekhmet War", "Nut Sky", "Geb Earth", "Shu Air", "Tefnut Rain",
-        "Akhenaten One", "Nefertiti Beautiful", "Tutankhamun", "Cleopatra Queen", "Hatshepsut Strong", "Khufu Builder",
-        "Khafre Great", "Menkaure Authentic", "Djoser Wise", "Imhotep Architect", "Nefertari Beloved", "Seti First",
-        "Merneptah Conqueror", "Thutmose Third", "Amenhotep Third", "Sneferu Beneficent", "Pepi Second", "Unas Ancient",
-        "Mena Unifier", "Narmer Conqueror", "Ahmose Conqueror", "Kamose Brave", "Seqenenre Martyr", "Ahhotep"
-    ]
+    anime: {
+        en: [
+            "Sakura Shadow", "Ryu Storm", "Kaito Blaze", "Yuki Frost", "Akira Void", "Ren Spirit",
+            "Hiroshi Thunder", "Kenji Blade", "Sora Sky", "Rina Moon", "Takeshi Steel", "Yumi Light",
+            "Daiki Earth", "Hana Flower", "Shinji Soul", "Mika Star", "Taro Dragon", "Nami Wave",
+            "Sasuke Dark", "Naruto Wind", "Luffy Rubber", "Zoro Sword", "Sanji Fire", "Goku Power",
+            "Vegeta Pride", "Ichigo Death", "Rukia Snow", "Aizen Illusion", "Madara Legend", "Hashirama Wood",
+            "Minato Flash", "Kakashi Copy", "Jiraiya Sage", "Tsunade Power", "Orochimaru Snake", "Gaara Sand",
+            "Killua Lightning", "Gon Hunter", "Kurapika Chain", "Hisoka Joker", "Eren Titan", "Mikasa Guardian",
+            "Levi Captain", "Light Kira", "L Detective", "Nezuko Demon", "Tanjiro Water", "Zenitsu Thunder"
+        ],
+        ar: [
+            "ساكورا الظل", "ريو العاصفة", "كايتو اللهب", "يوكي الجليد", "أكيرا الفراغ", "رين الروح",
+            "هيروشي الرعد", "كينجي السيف", "سورا السماء", "رينا القمر", "تاكيشي الفولاذ", "يومي النور",
+            "دايكي الأرض", "هانا الزهرة", "شينجي الروح", "ميكا النجمة", "تارو التنين", "نامي الموجة",
+            "ساسوكي الظلام", "ناروتو الرياح", "لوفي المطاط", "زورو السيف", "سانجي النار", "غوكو القوة",
+            "فيجيتا الكبرياء", "إيتشيغو الموت", "روكيا الثلج", "آيزن الوهم", "مادارا الأسطورة", "هاشيراما الخشب",
+            "ميناتو الوميض", "كاكاشي الناسخ", "جيرايا الناسك", "تسونادي القوة", "أوروتشيمارو الأفعى", "غارا الرمال",
+            "كيلوا البرق", "غون الصياد", "كورابيكا السلسلة", "هيسوكا الجوكر", "إيرين العملاق", "ميكاسا الحارسة",
+            "ليفي القائد", "لايت كيرا", "إل المحقق", "نيزوكو الشيطانة", "تانجيرو الماء", "زينيتسو الرعد"
+        ]
+    },
+    alien: {
+        en: [
+            "Xyloph", "Zorgon", "Quasar", "Nebulon", "Vortexia", "Krypton",
+            "Thalor", "Zentox", "Omicron", "Vega", "Sirius", "Andromeda",
+            "Exon", "Pulsar", "Nova", "Cosmo", "Astro", "Galax",
+            "Zeron", "Makron", "Titan", "Orion", "Pleiades", "Draco",
+            "Lyra", "Cygnus", "Pegasus", "Phoenix", "Hydra", "Cetus",
+            "Vulcan", "Romulus", "Klingon", "Cyborg", "Xenomorph", "Predator",
+            "Avatar", "Navi", "Thanos", "Gamora", "Nebula", "Rocket",
+            "Groot", "Starlord", "Drax", "Mantis", "Yondu", "Kraglin"
+        ],
+        ar: [
+            "زايلوف", "زورغون", "كوازار", "نيبولون", "فورتيكسيا", "كريبتون",
+            "ثالور", "زينتوكس", "أوميكرون", "فيغا", "سيريوس", "أندروميدا",
+            "إكسون", "بولسار", "نوفا", "كوزمو", "أسترو", "غالاكس",
+            "زيرون", "ماكرون", "تيتان", "أوريون", "بلياديس", "دراكو",
+            "ليرا", "سيغنوس", "بيغاسوس", "فينيكس", "هيدرا", "سيتوس",
+            "فولكان", "رومولوس", "كلينغون", "سايبورغ", "زينومورف", "بريداتور",
+            "أفاتار", "نافي", "ثانوس", "غامورا", "نيبولا", "روكيت",
+            "غروت", "ستارلورد", "دراكس", "مانتيس", "يوندو", "كراغلين"
+        ]
+    },
+    brand: {
+        en: [
+            "Al-Jazeera Lux", "Desert Rose", "Oasis Pure", "Sultan's Gold", "Arabian Nights", "Dune Essence",
+            "Royal Oud", "Golden Palm", "Sahara Breeze", "Majestic Falcon", "Pearl of Gulf", "Emerald Mirage",
+            "Crown of Arabia", "Silk Road", "Mystic Amber", "Azure Sky", "Velvet Sand", "Diamond Dune",
+            "Asala", "Fakhama", "Turath", "Nokhba", "Qimma", "Riyada",
+            "Black Diamond", "Orient Ruby", "Nile Emerald", "Kings Scent", "Princes Incense", "Musk Finale",
+            "Arabian Horse", "Damascus Sword", "Authentic Coffee", "Generous Hospitality", "Luxury Majlis", "Royal Diwan",
+            "Alhambra Palace", "Andalusian Nights", "Magic of East", "Scent of History", "Touch of Creativity", "Future Vision"
+        ],
+        ar: [
+            "الجزيرة لوكس", "وردة الصحراء", "واحة النقاء", "ذهب السلطان", "ليالي عربية", "جوهر الكثبان",
+            "العود الملكي", "النخلة الذهبية", "نسيم الصحراء", "الصقر المهيب", "لؤلؤة الخليج", "سراب الزمرد",
+            "تاج العرب", "طريق الحرير", "العنبر الغامض", "السماء اللازوردية", "الرمال المخملية", "كثيب الماس",
+            "أصالة", "فخامة", "تراث", "نخبة", "قمة", "ريادة",
+            "الماس الأسود", "ياقوت الشرق", "زمرد النيل", "عطر الملوك", "بخور الأمراء", "مسك الختام",
+            "الجواد العربي", "السيف الدمشقي", "القهوة الأصيلة", "كرم الضيافة", "المجلس الفاخر", "الديوان الملكي",
+            "قصر الحمراء", "ليالي الأندلس", "سحر الشرق", "عبق التاريخ", "لمسة إبداع", "رؤية المستقبل"
+        ]
+    },
+    indian: {
+        en: [
+            "Aarav Sun", "Vihaan Dawn", "Aditya Light", "Sai Divine", "Arjun White", "Rohan Ascending",
+            "Ishaan Sun", "Ananya Grace", "Diya Lamp", "Kavya Poetry", "Mira Ocean", "Nisha Night",
+            "Riya Singer", "Saanvi Goddess", "Vivan Life", "Zara Princess", "Kabir Great", "Neel Blue",
+            "Raj King", "Rani Queen", "Priya Beloved", "Amita Infinite", "Dev God", "Lakshmi Luck",
+            "Ganesh Wisdom", "Shiva Destroyer", "Vishnu Preserver", "Brahma Creator", "Indra King", "Agni Fire",
+            "Vayu Wind", "Varuna Water", "Soma Moon", "Surya Sun", "Kali Time", "Durga Power",
+            "Saraswati Knowledge", "Krishna Black", "Rama Joy", "Sita Earth", "Hanuman Strength", "Ravana Roar"
+        ],
+        ar: [
+            "آراف الشمس", "فيهان الفجر", "أديتيا النور", "ساي المقدس", "أرجون الأبيض", "روهان الصاعد",
+            "إيشان الشمس", "أنانيا النعمة", "ديا المصباح", "كافيا الشعر", "ميرا المحيط", "نيشا الليل",
+            "ريا المغنية", "سانفي الإلهة", "فيفان الحياة", "زارا الأميرة", "كبير العظيم", "نيل الأزرق",
+            "راج الملك", "راني الملكة", "بريا المحبوبة", "أميتا اللانهائية", "ديف الإله", "لاكشمي الحظ",
+            "غانيش الحكمة", "شيفا المدمر", "فيشنو الحافظ", "براهما الخالق", "إندرا الملك", "أغني النار",
+            "فايو الرياح", "فارونا الماء", "سوما القمر", "سوريا الشمس", "كالي الزمن", "دورغا القوة",
+            "ساراسواتي المعرفة", "كريشنا الأسود", "راما الفرح", "سيتا الأرض", "هانومان القوة", "رافانا الزئير"
+        ]
+    },
+    pharaonic: {
+        en: [
+            "Ramses Great", "Horus Sky", "Anubis Guide", "Osiris Life", "Isis Magic", "Thoth Wisdom",
+            "Set Chaos", "Ra Sun", "Amun Hidden", "Bastet Cat", "Hathor Love", "Maat Truth",
+            "Sobek Power", "Sekhmet War", "Nut Sky", "Geb Earth", "Shu Air", "Tefnut Rain",
+            "Akhenaten One", "Nefertiti Beautiful", "Tutankhamun", "Cleopatra Queen", "Hatshepsut Strong", "Khufu Builder",
+            "Khafre Great", "Menkaure Authentic", "Djoser Wise", "Imhotep Architect", "Nefertari Beloved", "Seti First",
+            "Merneptah Conqueror", "Thutmose Third", "Amenhotep Third", "Sneferu Beneficent", "Pepi Second", "Unas Ancient",
+            "Mena Unifier", "Narmer Conqueror", "Ahmose Conqueror", "Kamose Brave", "Seqenenre Martyr", "Ahhotep"
+        ],
+        ar: [
+            "رمسيس العظيم", "حورس السماء", "أنوبيس المرشد", "أوزوريس الحياة", "إيزيس السحر", "تحوت الحكمة",
+            "ست الفوضى", "رع الشمس", "آمون الخفي", "باستيت القطة", "حتحور الحب", "ماعت الحقيقة",
+            "سوبيك القوة", "سخمت الحرب", "نوت السماء", "جب الأرض", "شو الهواء", "تفنوت المطر",
+            "أخناتون الموحد", "نفرتيتي الجميلة", "توت عنخ آمون", "كليوباترا الملكة", "حتشبسوت القوية", "خوفو الباني",
+            "خفرع العظيم", "منقرع الأصيل", "زوسر الحكيم", "إيمحتب المعماري", "نفرتاري المحبوبة", "سيتي الأول",
+            "مرنبتاح الفاتح", "تحتمس الثالث", "أمنحتب الثالث", "سنفرو المحسن", "بيبي الثاني", "أوناس القديم",
+            "مينا الموحد", "نارمر الفاتح", "أحمس قاهر الهكسوس", "كامس الشجاع", "سقنن رع الشهيد", "إياح حتب"
+        ]
+    }
 };
 
 // Deterministic Hash Function
@@ -309,7 +366,9 @@ function showResult(type, userName) {
     scanningOverlay.classList.remove('visible');
     setTimeout(() => scanningOverlay.classList.add('hidden'), 300);
 
-    const list = names[type];
+    // Get list based on current language
+    const list = names[type][currentLang];
+
     const hash = stringToHash(userName.toLowerCase() + type);
     const index = hash % list.length;
     const resultName = list[index];
